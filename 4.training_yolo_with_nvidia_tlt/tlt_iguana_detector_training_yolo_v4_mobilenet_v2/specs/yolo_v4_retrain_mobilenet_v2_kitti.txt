@@ -1,0 +1,84 @@
+random_seed: 42
+yolov4_config {
+  big_anchor_shape: "[(571.59, 286.00), (898.22, 219.65), (1038.38, 317.10)]"
+  mid_anchor_shape: "[(316.88, 206.53), (598.41, 129.00), (1015.22, 145.00)]"
+  small_anchor_shape: "[(163.31, 31.94), (371.11, 63.50), (823.88, 78.50)]"
+  box_matching_iou: 0.25
+  arch: "mobilenet_v2"
+  nlayers: 53
+  arch_conv_blocks: 2
+  loss_loc_weight: 0.8
+  loss_neg_obj_weights: 100.0
+  loss_class_weights: 0.5
+  label_smoothing: 0.0
+  big_grid_xy_extend: 0.05
+  mid_grid_xy_extend: 0.1
+  small_grid_xy_extend: 0.2
+  freeze_bn: false
+  #freeze_blocks: 0
+  force_relu: false
+}
+training_config {
+  batch_size_per_gpu: 8
+  num_epochs: 1
+  enable_qat: false
+  checkpoint_interval: 10
+  learning_rate {
+    soft_start_cosine_annealing_schedule {
+      min_learning_rate: 1e-7
+      max_learning_rate: 1e-4
+      soft_start: 0.3
+    }
+  }
+  regularizer {
+    type: L1
+    weight: 3e-5
+  }
+  optimizer {
+    adam {
+      epsilon: 1e-7
+      beta1: 0.9
+      beta2: 0.999
+      amsgrad: false
+    }
+  }
+  pruned_model_path: "/workspace/tlt-experiments/yolo_v4_iguana/experiment_dir_pruned/yolov4_mobilenet_v2_pruned.tlt"
+}
+eval_config {
+  average_precision_mode: SAMPLE
+  batch_size: 8
+  matching_iou_threshold: 0.5
+}
+nms_config {
+  confidence_threshold: 0.001
+  clustering_iou_threshold: 0.5
+  top_k: 200
+}
+augmentation_config {
+  hue: 0.1
+  saturation: 1.5
+  exposure:1.5
+  vertical_flip:0
+  horizontal_flip: 0.5
+  jitter: 0.3
+  output_width: 1248
+  output_height: 384
+  randomize_input_shape_period: 0
+  mosaic_prob: 0.5
+  mosaic_min_ratio:0.2
+}
+dataset_config {
+  data_sources: {
+      label_directory_path: "/workspace/tlt-experiments/data/iguana_detection/training/label_2"
+      image_directory_path: "/workspace/tlt-experiments/data/iguana_detection/training/image_2"
+  }
+  include_difficult_in_training: true
+  target_class_mapping {
+      key: "iguana"
+      value: "iguana"
+  }
+  validation_data_sources: {
+      label_directory_path: "/workspace/tlt-experiments/data/iguana_detection/val/label"
+      image_directory_path: "/workspace/tlt-experiments/data/iguana_detection/val/image"
+  }
+}
