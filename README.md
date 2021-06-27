@@ -1,7 +1,8 @@
 # Iguana detection on Nvidia Jetson Nano for monitoring
 
 ![](https://i.imgur.com/c8iOqsX.jpg)
-
+## 整體系統架構圖
+[![Iguana detection and monitoring system architecture](https://miro.medium.com/max/1225/1*icZr5rQO5gG6VEn1rTFAgg.png)](https://www.youtube.com/watch?v=dy8rDn9eXCc&ab_channel=AI4kids "Iguana detection and monitoring system architecture")
 
 ## 目錄
 * 專案大綱
