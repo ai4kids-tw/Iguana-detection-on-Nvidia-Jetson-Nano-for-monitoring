@@ -86,7 +86,6 @@ NVIDIA 所提供的 TLT (Transfer Learning Toolkit) 顧名思義就是遷移學�
 TLT 其他的 CV 使用範例程式碼皆可在此[連結](https://ngc.nvidia.com/catalog/resources/nvidia:tlt_cv_samples/quickStartGuide)內找到，幾乎都是只要稍微調整參數即可一鍵訓練、優化、匯出。
 
 
-
 ## 5. 佈署模型於 Jetson 裝置
 模型訓練完畢後，下一步是佈署於 Jetson 裝置進行即時推論，同時也需要將影像與推論結果進行串流。我們使用的是 Nvidia Deepstream，一個專為推論、資料串流而生的框架。
 
@@ -143,8 +142,7 @@ Bootstrap是一組用於網站和網路應用程式開發的開源前端框架�
 本專案使用 mySQL 建置資料庫，使用者可挑選偏好的資料庫種類。資料庫的建目的是從 Jetson Nano 推論時發送至 MQTT broker 的資料流可以被寫入資料庫，透過 Plotly Dash 定時更新資料並且將最新的資料呈現於儀表板。
 
 ### 6-4. MQTT 主題訂閱並與數據寫入資料庫
-Deepstream 在 Jetson Nano 上運行時通過 MQTT 通訊協定不斷向 MQTT broker 的特定主題發送推論結果之數據。透過設定此特定主題的訂閱者，就能在某主題有最新數據流入時收到通知、將數據寫入資料庫。此程式位置為此(連結)[https://github.com/ai4kids-tw/Iguana-detection-on-Nvidia-Jetson-Nano-for-monitoring/tree/main/6.web_based_monitoring_with_plotly_dash/1.mqtt_topic_listener]。
-
+Deepstream 在 Jetson Nano 上運行時通過 MQTT 通訊協定不斷向 MQTT broker 的特定主題發送推論結果之數據。透過設定此特定主題的訂閱者，就能在某主題有最新數據流入時收到通知、將數據寫入資料庫。此程式位置為此[連結](https://github.com/ai4kids-tw/Iguana-detection-on-Nvidia-Jetson-Nano-for-monitoring/tree/main/6.web_based_monitoring_with_plotly_dash/1.mqtt_topic_listener)。
 
 ### 6-5. 運行網頁儀表板
 - Deepstream 佈署與運行
