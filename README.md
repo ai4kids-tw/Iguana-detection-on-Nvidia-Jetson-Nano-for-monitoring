@@ -76,7 +76,7 @@ NVIDIA 所提供的 TLT (Transfer Learning Toolkit) 顧名思義就是遷移學�
 
 
 #### 4-3. NVIDIA TLT 安裝教學
-在此我們提供了一份詳細的 NVIDIA TLT 安裝教學，請見此連結。
+在此我們提供了一份詳細的 NVIDIA TLT 安裝教學，請見此[連結](https://github.com/ai4kids-tw/Iguana-detection-on-Nvidia-Jetson-Nano-for-monitoring/tree/main/4.training_yolo_with_nvidia_tlt)。
 
 #### 4-4. 模型訓練、優化
 此專案的物件偵測模型為 yolo v4，我們使用 TLT 當中檢附的 yolo v4 模型訓練範例程式碼稍作修改後，便能使用綠鬣蜥的圖片、標籤來訓練模型。
