@@ -135,7 +135,7 @@ Bootstrap是一組用於網站和網路應用程式開發的開源前端框架�
 ![](https://i.imgur.com/iMp3pno.png)
 
 
-使用者可依照自己的喜好選用 MQTT broker，在此專案當中我們所使用的是 Eclipse Mosquitto。安裝好後只要啟動 MQTT broker 就能開始接收接收資料。
+使用者可依照自己的喜好選用 MQTT broker，在此專案當中我們所使用的是 Eclipse Mosquitto。安裝好後只要啟動 MQTT broker 就能開始接收資料。
 
 ### 6-4. 資料庫建置
 ![](https://i.imgur.com/NmZAi0C.png)
